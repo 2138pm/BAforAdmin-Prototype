@@ -1,4 +1,4 @@
-package ku.cs.bankaccountdemo1;
+package ku.cs.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
