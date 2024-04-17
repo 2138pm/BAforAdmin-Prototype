@@ -10,10 +10,10 @@ public class CustomerController {
     @FXML
     public void initialize() {
         Customer customer = new Customer("6410400001", "Tony Stark");
-        showStudent(customer);
+        showCustomer(customer);
     }
 
-    private void showStudent(Customer customer) {
+    private void showCustomer(Customer customer) {
         nameLabel.setText(customer.getName());
     }
 }

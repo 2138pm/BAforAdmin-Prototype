@@ -1,7 +1,10 @@
 package ku.cs.controllers;
 
+import ku.cs.services.FXRouter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 
 public class HelloController {
     @FXML
@@ -9,6 +12,10 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        try {
+            FXRouter.goTo("customer-list");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

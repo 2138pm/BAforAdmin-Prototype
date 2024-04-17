@@ -11,13 +11,16 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "Hello World");
         configRoute();
-        FXRouter.goTo("customer-profile");
+        FXRouter.goTo("hello");
+        //FXRouter.goTo("customer-list");
     }
 
     public static void configRoute()
     {
         String viewPath = "ku/cs/views/";
+        FXRouter.when("hello", viewPath +"hello-view.fxml");
         FXRouter.when("customer-profile", viewPath + "customer.fxml");
+        FXRouter.when("customer-list", viewPath + "customer-list.fxml");
     }
 
     public static void main(String[] args) {
