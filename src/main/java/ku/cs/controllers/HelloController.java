@@ -13,7 +13,7 @@ public class HelloController {
     @FXML
     protected void onHelloButtonClick() {
         try {
-            FXRouter.goTo("customer-list");
+            FXRouter.goTo("admin");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
