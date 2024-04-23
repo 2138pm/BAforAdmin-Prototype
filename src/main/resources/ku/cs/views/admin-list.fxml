@@ -35,7 +35,7 @@
       </Label>
       <Button layoutY="-1.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="BACK" />
       <Button contentDisplay="RIGHT" layoutX="735.0" layoutY="-1.0" mnemonicParsing="false" onAction="#onContinueButtonClick" text="Continue" />
-      <ListView fx:id="adminListView" layoutX="82.0" layoutY="82.0" prefHeight="272.0" prefWidth="284.0" />
+      <ListView fx:id="adminListView" layoutX="61.0" layoutY="56.0" prefHeight="302.0" prefWidth="302.0" />
       <Label layoutX="398.0" layoutY="259.0" text="Password:">
          <font>
             <Font size="22.0" />
