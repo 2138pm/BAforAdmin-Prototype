@@ -65,7 +65,7 @@ public class CustomerListController {
     @FXML
     public void onBackButtonClick() {
         try {
-            FXRouter.goTo("admin");
+            FXRouter.goTo("admin-list");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -9,7 +9,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXRouter.bind(this, stage, "I HERE Bank!!!");
+        FXRouter.bind(this, stage, "I Bank!!!");
         configRoute();
         //FXRouter.goTo("admin");
         FXRouter.goTo("hello");
@@ -20,7 +20,8 @@ public class HelloApplication extends Application {
     {
         String viewPath = "ku/cs/views/";
         FXRouter.when("hello", viewPath +"hello-view.fxml");
-        FXRouter.when("admin", viewPath +"admin.fxml");
+        FXRouter.when("login", viewPath +"login.fxml");
+        FXRouter.when("admin-list", viewPath +"admin-list.fxml");
         FXRouter.when("customer-profile", viewPath + "customer.fxml");
         FXRouter.when("customer-list", viewPath + "customer-list.fxml");
     }

@@ -12,6 +12,10 @@ public class Admin {
         pw = "CS38";
     }
 
+    public boolean isId(String id) {
+        return this.id.equals(id);
+    }
+
     public String getName(){
         return name;
     }

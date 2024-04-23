@@ -12,13 +12,16 @@ public class AdminController {
 
     @FXML private Label nameLabel;
     @FXML private Label idLabel;
+    @FXML private Label passwordLabel;
 
     @FXML
     public void initialize() {
         Admin admin = new Admin("August Youth", "6610450170");
         showAdminName(admin);
         showAdminId(admin);
+        showAdminPw(admin);
     }
+
 
     private void showAdminName(Admin admin) {
         nameLabel.setText(admin.getName());
@@ -26,11 +29,12 @@ public class AdminController {
     private void showAdminId(Admin admin) {
         idLabel.setText(admin.getId());
     }
+    private void showAdminPw(Admin admin) { passwordLabel.setText(admin.getPassword());}
 
     @FXML
     public void onBackButtonClick() {
         try {
-            FXRouter.goTo("hello");
+            FXRouter.goTo("login");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
