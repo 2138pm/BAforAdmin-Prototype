@@ -16,7 +16,7 @@ public class AdminController {
 
     @FXML
     public void initialize() {
-        Admin admin = new Admin("August Youth", "6610450170");
+        Admin admin = new Admin("August Youth", "6610450170", "CS38");
         showAdminName(admin);
         showAdminId(admin);
         showAdminPw(admin);

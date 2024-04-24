@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import ku.cs.models.Admin;
 import ku.cs.models.AdminList;
 import ku.cs.services.AdminHardCodeDatasource;
+import ku.cs.services.AdminListFileDatasource;
+import ku.cs.services.Datasource;
 import ku.cs.services.FXRouter;
 
 import java.io.IOException;
@@ -31,7 +33,8 @@ public class AdminListController {
     public void initialize() {
         //errorLabel.setText("");
         clearAdminInfo();
-        AdminHardCodeDatasource datasource = new AdminHardCodeDatasource();
+        //AdminHardCodeDatasource datasource = new AdminHardCodeDatasource();
+        Datasource<AdminList> datasource = new AdminListFileDatasource("data", "admin-list.csv");
         adminList = datasource.readData();
         showList(adminList);
         adminListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Admin>() {

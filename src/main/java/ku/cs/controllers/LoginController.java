@@ -2,6 +2,7 @@ package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import ku.cs.services.Datasource;
 import ku.cs.services.FXRouter;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -9,9 +10,10 @@ import javafx.fxml.FXML;
 import ku.cs.models.Admin;
 import ku.cs.models.AdminList;
 import ku.cs.services.AdminHardCodeDatasource;
+import ku.cs.models.AdminList;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import ku.cs.services.AdminListFileDatasource;
 
 public class LoginController {
 
@@ -22,27 +24,33 @@ public class LoginController {
 
 
     private Admin admin;
-    private AdminList adminlist;
+    private AdminList adminList;
 
-//    private String username = admin.getId();
-//    private String password = admin.getPassword();
+
 
 
     public void onLoginButtonClick(ActionEvent event) throws IOException {
-
         checkLogin();
-
     }
 
-    private void checkLogin() throws IOException {
-        errorLabel.setText("");
-        if(giveUsernameTextField.getText().equals("August") && givePasswordTextField.getText().equals("CS38")) {
-            errorLabel.setText("Success!");
 
-            onLoginButtonClick();
+    private void checkLogin() throws IOException {
+        Datasource<AdminList> datasource = new AdminListFileDatasource("data", "admin-list.csv");
+        adminList = datasource.readData();
+
+        errorLabel.setText("");
+        String username = giveUsernameTextField.getText();
+        String password = givePasswordTextField.getText();
+
+        for (Admin admin : adminList.getAdmins()) {
+            if (admin.getName().equals(username) && admin.getPassword().equals(password)) {
+                errorLabel.setText("Success!");
+                onLoginButtonClick();
+                return;
+            }
         }
 
-        else if(giveUsernameTextField.getText().isEmpty() && givePasswordTextField.getText().isEmpty()) {
+        if(giveUsernameTextField.getText().isEmpty() && givePasswordTextField.getText().isEmpty()) {
             errorLabel.setText("Please enter your data.");
         }
 
@@ -72,5 +80,3 @@ public class LoginController {
     }
 }
 
-
-//เหลือสร้างหน้าAdmin List Info

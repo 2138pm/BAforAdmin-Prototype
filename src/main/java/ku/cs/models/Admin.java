@@ -1,20 +1,23 @@
 package ku.cs.models;
 
+import java.util.Objects;
+
 public class Admin {
     private String name;
     private String id;
 
     private String pw;
 
-    public Admin(String name,String id){
+    public Admin(String name,String id, String password){
         this.name = name;
         this.id = id;
-        pw = "CS38";
+        this.pw = password;
     }
 
     public boolean isId(String id) {
         return this.id.equals(id);
     }
+
 
     public String getName(){
         return name;
@@ -27,6 +30,11 @@ public class Admin {
         return pw;
     }
 
+    public void setPw(String password) {
+        if (!Objects.equals(password, "")) {
+            this.pw = password;
+        }
+    }
 
 
 

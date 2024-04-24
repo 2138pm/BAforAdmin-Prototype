@@ -9,13 +9,14 @@ public class AdminList {
         admins = new ArrayList<>();
     }
 
-    public void addNewAdmin(String id, String name) {
+    public void addNewAdmin(String id, String name, String password) {
         id = id.trim();
         name = name.trim();
         if (!id.equals("") && !name.equals("")) {
             Admin exist = findAdminById(id);
+//            Admin exist1 = findAdminByPassword(password);
             if (exist == null) {
-                admins.add(new Admin(id.trim(), name.trim()));
+                admins.add(new Admin(id, name, password));
             }
         }
     }
@@ -29,12 +30,16 @@ public class AdminList {
         return null;
     }
 
-//    public void givePasswordToId(String id, String pw) {
-//        Admin exist = findAdminById(id);
-//        if (exist != null) {
-//            exist.addBalance(balance);
+//    public Admin findAdminByPassword(String pw) {
+//        for (Admin admin : admins) {
+//            if (admin.isPassword(pw)) {
+//                return admin;
+//            }
 //        }
+//        return null;
 //    }
+
+
 
 //    public String viewTierOfId(String id) {
 //        Customer exist = findCustomerById(id);
