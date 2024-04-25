@@ -5,10 +5,10 @@ public class Customer {
     private String name;
     private double balance;
 
-    public Customer(String id, String name) {
+    public Customer(String id, String name, double balance) {
         this.id = id;
         this.name = name;
-        balance = 0;
+        this.balance = balance;
     }
 
     public void changeName(String name) {

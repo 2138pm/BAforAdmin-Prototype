@@ -1,14 +1,15 @@
 package ku.cs.services;
 
-import ku.cs.models.Admin;
-import ku.cs.models.AdminList;
+import ku.cs.models.Customer;
+import ku.cs.models.CustomerList;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-public class AdminListFileDatasource implements Datasource<AdminList>{
+
+public class CustomerListFileDatasource implements Datasource<CustomerList>{
     private String directoryName;
     private String fileName;
 
-    public AdminListFileDatasource(String directoryName, String fileName) {
+    public CustomerListFileDatasource(String directoryName, String fileName) {
         this.directoryName = directoryName;
         this.fileName = fileName;
         checkFileIsExisted();
@@ -31,8 +32,8 @@ public class AdminListFileDatasource implements Datasource<AdminList>{
         }
     }
     @Override
-    public AdminList readData() {
-        AdminList admins = new AdminList();
+    public CustomerList readData() {
+        CustomerList customers = new CustomerList();
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
 
@@ -62,22 +63,22 @@ public class AdminListFileDatasource implements Datasource<AdminList>{
                 String[] data = line.split(",");
 
                 // อ่านข้อมูลตาม index แล้วจัดการประเภทของข้อมูลให้เหมาะสม
-                String name = data[0].trim();
-                String id = data[1].trim();
-                String password = data[2].trim();
+                String id = data[0].trim();
+                String name = data[1].trim();
+                double balance = Double.parseDouble(data[2].trim());
 
                 // เพิ่มข้อมูลลงใน list
-                admins.addNewAdmin(name, id, password);
+                customers.addNewCustomer(id, name, balance);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        return admins;
+        return customers;
     }
 
-    @Override   //รอสร้างregisterPage
-    public void writeData(AdminList data) {
+    @Override
+    public void writeData(CustomerList data) {
         String filePath = directoryName + File.separator + fileName;
         File file = new File(filePath);
 
@@ -98,8 +99,8 @@ public class AdminListFileDatasource implements Datasource<AdminList>{
 
         try {
             // สร้าง csv ของ Student และเขียนลงในไฟล์ทีละบรรทัด
-            for (Admin admin : data.getAdmins()) {
-                String line = admin.getName() + "," + admin.getId() + "," + admin.getPassword();
+            for (Customer customer : data.getCustomers()) {
+                String line = customer.getId() + "," + customer.getName() + "," + customer.getBalance();
                 buffer.append(line);
                 buffer.append("\n");
             }

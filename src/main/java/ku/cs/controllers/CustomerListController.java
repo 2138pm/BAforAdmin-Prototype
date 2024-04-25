@@ -1,5 +1,7 @@
 package ku.cs.controllers;
 
+import ku.cs.services.CustomerListFileDatasource;
+import ku.cs.services.Datasource;
 import ku.cs.services.FXRouter;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -24,12 +26,15 @@ public class CustomerListController {
 
     private CustomerList customerList;
     private Customer selectedCustomer;
+    private Datasource<CustomerList> datasource;
 
     @FXML
     public void initialize() {
         errorLabel.setText("");
         clearCustomerInfo();
-        CustomerHardCodeDatasource datasource = new CustomerHardCodeDatasource();
+        //CustomerHardCodeDatasource datasource = new CustomerHardCodeDatasource();
+        //Datasource<CustomerList> datasource = new CustomerListFileDatasource("data", "customer-list.csv");
+        datasource = new CustomerListFileDatasource("data", "customer-list.csv");
         customerList = datasource.readData();
         showList(customerList);
         customerListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Customer>() {
@@ -79,6 +84,8 @@ public class CustomerListController {
                 double balance = Double.parseDouble(balanceText);
                 customerList.giveBalanceToId(selectedCustomer.getId(), balance);
                 showCustomerInfo(selectedCustomer);
+                datasource.writeData(customerList);
+                showList(customerList);
             } catch (NumberFormatException e) {
                 errorMessage = "Please insert number value";
                 errorLabel.setText(errorMessage);

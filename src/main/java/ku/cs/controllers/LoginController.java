@@ -22,11 +22,7 @@ public class LoginController {
     @FXML private TextField giveUsernameTextField;
     @FXML private PasswordField givePasswordTextField;
 
-
-    private Admin admin;
     private AdminList adminList;
-
-
 
 
     public void onLoginButtonClick(ActionEvent event) throws IOException {
@@ -74,6 +70,15 @@ public class LoginController {
     protected void onLoginButtonClick() {
         try {
             FXRouter.goTo("admin-list");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void onRegisterButtonClick() {
+        try {
+            FXRouter.goTo("register");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

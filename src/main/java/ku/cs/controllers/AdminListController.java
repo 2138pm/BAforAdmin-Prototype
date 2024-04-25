@@ -22,19 +22,18 @@ public class AdminListController {
     @FXML private Label nameLabel;
     @FXML private Label passwordLabel;
 
-    @FXML private Label errorLabel;
-    @FXML private TextField giveUsernameTextField;
 
-    @FXML private TextField givePasswordTextField;
 
     private AdminList adminList;
     private Admin selectedAdmin;
+    private Datasource<AdminList> datasource;
     @FXML
     public void initialize() {
-        //errorLabel.setText("");
+
         clearAdminInfo();
         //AdminHardCodeDatasource datasource = new AdminHardCodeDatasource();
-        Datasource<AdminList> datasource = new AdminListFileDatasource("data", "admin-list.csv");
+        //Datasource<AdminList> datasource = new AdminListFileDatasource("data", "admin-list.csv");
+        datasource = new AdminListFileDatasource("data", "admin-list.csv");
         adminList = datasource.readData();
         showList(adminList);
         adminListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Admin>() {
@@ -56,14 +55,14 @@ public class AdminListController {
         adminListView.getItems().addAll(adminList.getAdmins());
     }
     private void showAdminInfo(Admin admin) {
-        idLabel.setText(admin.getId());
         nameLabel.setText(admin.getName());
+        idLabel.setText(admin.getId());
         passwordLabel.setText(admin.getPassword());
     }
 
     private void clearAdminInfo() {
-        idLabel.setText("");
         nameLabel.setText("");
+        idLabel.setText("");
         passwordLabel.setText("");
     }
 

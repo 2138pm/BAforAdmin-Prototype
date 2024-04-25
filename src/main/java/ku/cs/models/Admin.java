@@ -30,20 +30,16 @@ public class Admin {
         return pw;
     }
 
-    public void setPw(String password) {
-        if (!Objects.equals(password, "")) {
-            this.pw = password;
-        }
-    }
+
 
 
 
     @Override
     public String toString() {
         return "{" +
-                "id: '" + id + '\'' +
-                ", name: '" + name + '\'' +
-                ", score: " + pw +
+                "name: '" + name + '\'' +
+                ", id: '" + id + '\'' +
+                ", password: " + pw +
                 '}';
     }
 

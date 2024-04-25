@@ -9,7 +9,7 @@ public class CustomerController {
 
     @FXML
     public void initialize() {
-        Customer customer = new Customer("6410400001", "Tony Stark");
+        Customer customer = new Customer("6410400001", "Tony Stark",0);
         showCustomer(customer);
     }
 

@@ -8,13 +8,13 @@ public class CustomerList {
         customers = new ArrayList<>();
     }
 
-    public void addNewCustomer(String id, String name) {
+    public void addNewCustomer(String id, String name, double balance) {
         id = id.trim();
         name = name.trim();
         if (!id.equals("") && !name.equals("")) {
             Customer exist = findCustomerById(id);
             if (exist == null) {
-                customers.add(new Customer(id.trim(), name.trim()));
+                customers.add(new Customer(id, name, balance));
             }
         }
     }
