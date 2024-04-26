@@ -1,4 +1,4 @@
-module ku.cs.bankaccountdemo1 {
+module ku.cs {
     requires javafx.controls;
     requires javafx.fxml;
 

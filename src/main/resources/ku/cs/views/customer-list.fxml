@@ -7,46 +7,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CustomerListController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #004b81;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CustomerListController">
    <children>
       <ListView fx:id="customerListView" layoutX="14.0" layoutY="57.0" prefHeight="316.0" prefWidth="279.0" />
-      <Label layoutX="14.0" layoutY="28.0" text="Customer List">
+      <Label layoutX="14.0" layoutY="28.0" text="Customer List" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="313.0" layoutY="38.0" prefHeight="32.0" prefWidth="186.0" text="Selected Customer" underline="true">
+      <Label layoutX="313.0" layoutY="38.0" prefHeight="32.0" prefWidth="186.0" text="Selected Customer" textFill="WHITE" underline="true">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="313.0" layoutY="83.0" text="ID:">
+      <Label layoutX="313.0" layoutY="83.0" text="ID:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="313.0" layoutY="140.0" text="Name:">
+      <Label layoutX="313.0" layoutY="140.0" text="Name:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="313.0" layoutY="200.0" text="Balance:">
+      <Label layoutX="313.0" layoutY="200.0" text="Balance:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="idLabel" layoutX="422.0" layoutY="82.0" text="idLabel">
+      <Label fx:id="idLabel" layoutX="422.0" layoutY="82.0" text="idLabel" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="nameLabel" layoutX="422.0" layoutY="139.0" text="nameLabel">
+      <Label fx:id="nameLabel" layoutX="422.0" layoutY="139.0" text="nameLabel" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="balanceLabel" layoutX="423.0" layoutY="199.0" text="balanceLabel">
+      <Label fx:id="balanceLabel" layoutX="423.0" layoutY="199.0" text="balanceLabel" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
@@ -57,15 +56,15 @@
          </font>
       </Button>
       <TextField fx:id="giveBalanceTextField" layoutX="418.0" layoutY="254.0" prefHeight="34.0" prefWidth="110.0" />
-      <Label layoutX="315.0" layoutY="253.0" text="TopUp:">
+      <Label layoutX="315.0" layoutY="253.0" text="TopUp:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <Label fx:id="errorLabel" layoutX="418.0" layoutY="288.0" text="errorLabel" textFill="RED" />
-      <Button layoutX="535.0" layoutY="254.0" mnemonicParsing="false" onAction="#onGiveBalanceButtonClick" prefHeight="32.0" prefWidth="46.0" text="OK">
+      <Button layoutX="535.0" layoutY="254.0" mnemonicParsing="false" onAction="#onGiveBalanceButtonClick" prefHeight="20.0" prefWidth="46.0" text="OK">
          <font>
-            <Font size="16.0" />
+            <Font size="15.0" />
          </font>
       </Button>
    </children>

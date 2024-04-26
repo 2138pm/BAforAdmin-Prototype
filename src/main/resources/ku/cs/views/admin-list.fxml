@@ -6,29 +6,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AdminListController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #004b81;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AdminListController">
    <children>
-      <Label layoutX="400.0" layoutY="82.0" text="Admin List:" underline="true">
+      <Label layoutX="400.0" layoutY="82.0" text="Admin List:" textFill="WHITE" underline="true">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="nameLabel" layoutX="532.0" layoutY="142.0" text="nameLabel">
+      <Label fx:id="nameLabel" layoutX="532.0" layoutY="142.0" text="nameLabel" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="143.0" text="Name:">
+      <Label layoutX="398.0" layoutY="143.0" text="Name:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="202.0" text="ID:">
+      <Label layoutX="398.0" layoutY="202.0" text="ID:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="idLabel" layoutX="532.0" layoutY="201.0" text="idLabel">
+      <Label fx:id="idLabel" layoutX="532.0" layoutY="201.0" text="idLabel" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
@@ -36,12 +36,22 @@
       <Button layoutY="-1.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="BACK" />
       <Button contentDisplay="RIGHT" layoutX="735.0" layoutY="-1.0" mnemonicParsing="false" onAction="#onContinueButtonClick" text="Continue" />
       <ListView fx:id="adminListView" layoutX="61.0" layoutY="56.0" prefHeight="302.0" prefWidth="302.0" />
-      <Label layoutX="398.0" layoutY="259.0" text="Password:">
+      <Label layoutX="398.0" layoutY="259.0" text="Password:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="passwordLabel" layoutX="533.0" layoutY="259.0" text="passwordLabel">
+      <Label fx:id="passwordLabel" layoutX="533.0" layoutY="259.0" text="passwordLabel" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="319.0" text="LoginTimes:" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="533.0" layoutY="319.0" text="timesLabel" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>

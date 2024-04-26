@@ -21,6 +21,7 @@ public class AdminListController {
     @FXML private Label idLabel;
     @FXML private Label nameLabel;
     @FXML private Label passwordLabel;
+    @FXML private Label timesLabel; //will add soon!!!
 
 
 
@@ -49,6 +50,7 @@ public class AdminListController {
             }
         });
     }
+
 
     private void showList(AdminList adminList) {
         adminListView.getItems().clear();

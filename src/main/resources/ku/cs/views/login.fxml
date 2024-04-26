@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="799.0" style="-fx-background-color: #004b81;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LoginController">
@@ -40,5 +41,11 @@
       <PasswordField fx:id="givePasswordTextField" layoutX="400.0" layoutY="248.0" promptText="Password" />
       <Button layoutX="399.0" layoutY="306.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" text="Register" />
       <Label layoutX="473.0" layoutY="310.0" text="or" textFill="WHITE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="19.0" layoutX="378.0" layoutY="115.0" rotate="177.1" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
+      <Label layoutX="385.0" layoutY="116.0" rotate="-2.75" text="Bank" textFill="#080808">
+         <font>
+            <Font name="Grotesque No. 9 W01 Regular" size="21.5" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
