@@ -7,11 +7,13 @@ public class Admin {
     private String id;
 
     private String pw;
+    //private int time;
 
     public Admin(String name,String id, String password){
         this.name = name;
         this.id = id;
         this.pw = password;
+        //this.time = time;
     }
 
     public boolean isId(String id) {
@@ -29,6 +31,7 @@ public class Admin {
     public String getPassword(){
         return pw;
     }
+    //public int getTimes(){ return time;}
 
 
 
@@ -39,8 +42,7 @@ public class Admin {
         return "{" +
                 "name: '" + name + '\'' +
                 ", id: '" + id + '\'' +
-                ", password: " + pw +
-                '}';
+                ", password: " + pw + "}";
     }
 
 }

@@ -80,7 +80,7 @@ public class AdminListController {
     @FXML
     protected void onContinueButtonClick() {
         try {
-            FXRouter.goTo("customer-list");
+            FXRouter.goTo("customers-table");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

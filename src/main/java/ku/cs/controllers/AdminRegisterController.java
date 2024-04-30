@@ -45,7 +45,8 @@ public class AdminRegisterController {
                 errorLabel.setText("The data has been used!");
                 break;
             }else {
-                    adminList.addNewAdmin(username, id, password);
+
+                adminList.addNewAdmin(username, id, password);
                     datasource.writeData(adminList);
                     onRegisterButtonClick();
                     return;

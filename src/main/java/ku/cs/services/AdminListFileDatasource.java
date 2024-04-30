@@ -65,6 +65,7 @@ public class AdminListFileDatasource implements Datasource<AdminList>{
                 String name = data[0].trim();
                 String id = data[1].trim();
                 String password = data[2].trim();
+//              int time = Integer.parseInt(data[3].trim());
 
                 // เพิ่มข้อมูลลงใน list
                 admins.addNewAdmin(name, id, password);

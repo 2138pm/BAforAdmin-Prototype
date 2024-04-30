@@ -25,6 +25,8 @@ public class HelloApplication extends Application {
         FXRouter.when("admin-list", viewPath +"admin-list.fxml");
         FXRouter.when("customer-profile", viewPath + "customer.fxml");
         FXRouter.when("customer-list", viewPath + "customer-list.fxml");
+        FXRouter.when("customers-table", viewPath + "customers-table.fxml");
+        FXRouter.when("customer-balance", viewPath + "customer-balance.fxml");
     }
 
     public static void main(String[] args) {
