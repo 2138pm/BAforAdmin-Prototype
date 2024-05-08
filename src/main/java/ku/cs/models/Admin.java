@@ -1,19 +1,23 @@
 package ku.cs.models;
 
-import java.util.Objects;
-
 public class Admin {
-    private String name;
+    private String username;
     private String id;
 
-    private String pw;
+    private String password;
     //private int time;
 
     public Admin(String name,String id, String password){
-        this.name = name;
+        this.username = name;
         this.id = id;
-        this.pw = password;
+        this.password = password;
         //this.time = time;
+
+    }
+
+    public boolean check(String username, String password){
+
+        return this.username.equals(username) && this.password.equals(password) ;
     }
 
     public boolean isId(String id) {
@@ -22,27 +26,29 @@ public class Admin {
 
 
     public String getName(){
-        return name;
+        return username;
     }
     public String getId(){
         return id;
     }
 
-    public String getPassword(){
-        return pw;
-    }
+//    public String getPassword(){
+//        return pw;
+//    }
     //public int getTimes(){ return time;}
 
 
-
+    public String toCsv(){
+        return username + "," + id + "," + password;
+    }
 
 
     @Override
     public String toString() {
         return "{" +
-                "name: '" + name + '\'' +
+                "name: '" + username + '\'' +
                 ", id: '" + id + '\'' +
-                ", password: " + pw + "}";
+                ", password: " + password + "}";
     }
 
 }

@@ -3,10 +3,13 @@ package ku.cs.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ku.cs.models.Admin;
-import ku.cs.models.Customer;
+import ku.cs.models.AdminList;
+import ku.cs.services.AdminListFileDatasource;
+import ku.cs.services.Datasource;
 import ku.cs.services.FXRouter;
 
 import java.io.IOException;
+
 
 public class AdminController {
 
@@ -14,12 +17,16 @@ public class AdminController {
     @FXML private Label idLabel;
     @FXML private Label passwordLabel;
 
+    private Datasource<AdminList> datasource;
+
     @FXML
     public void initialize() {
-        Admin admin = new Admin("August Youth", "6610450170", "CS38");
+        datasource = new AdminListFileDatasource("data", "admin-list.csv");
+        //Admin admin = new Admin("August Youth", "6610450170", "CS38");
+        Admin admin = (Admin) FXRouter.getData();
         showAdminName(admin);
         showAdminId(admin);
-        showAdminPw(admin);
+        //showAdminPw(admin);
     }
 
 
@@ -29,7 +36,7 @@ public class AdminController {
     private void showAdminId(Admin admin) {
         idLabel.setText(admin.getId());
     }
-    private void showAdminPw(Admin admin) { passwordLabel.setText(admin.getPassword());}
+    //private void showAdminPw(Admin admin) { passwordLabel.setText(admin.getPassword());}
 
     @FXML
     public void onBackButtonClick() {
@@ -43,7 +50,7 @@ public class AdminController {
     @FXML
     protected void onContinueButtonClick() {
         try {
-            FXRouter.goTo("customer-list");
+            FXRouter.goTo("customers-table");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

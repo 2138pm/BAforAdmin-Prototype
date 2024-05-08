@@ -22,7 +22,9 @@ public class HelloApplication extends Application {
         FXRouter.when("hello", viewPath +"hello-view.fxml");
         FXRouter.when("login", viewPath +"login.fxml");
         FXRouter.when("register", viewPath +"admin-register.fxml");
+        FXRouter.when("success", viewPath +"success-register.fxml");
         FXRouter.when("admin-list", viewPath +"admin-list.fxml");
+        FXRouter.when("admin", viewPath +"admin.fxml");
         FXRouter.when("customer-profile", viewPath + "customer.fxml");
         FXRouter.when("customer-list", viewPath + "customer-list.fxml");
         FXRouter.when("customers-table", viewPath + "customers-table.fxml");

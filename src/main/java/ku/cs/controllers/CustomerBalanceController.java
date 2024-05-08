@@ -12,7 +12,7 @@ import ku.cs.services.CustomerListFileDatasource;
 import java.io.IOException;
 
 
-public class CustomerScoreController {
+public class CustomerBalanceController {
     @FXML private Label nameLabel;
     @FXML private Label idLabel;
     @FXML private Label balanceLabel;

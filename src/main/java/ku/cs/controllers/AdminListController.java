@@ -59,13 +59,13 @@ public class AdminListController {
     private void showAdminInfo(Admin admin) {
         nameLabel.setText(admin.getName());
         idLabel.setText(admin.getId());
-        passwordLabel.setText(admin.getPassword());
+        //passwordLabel.setText(admin.getPassword());
     }
 
     private void clearAdminInfo() {
         nameLabel.setText("");
         idLabel.setText("");
-        passwordLabel.setText("");
+        //passwordLabel.setText("");
     }
 
     @FXML

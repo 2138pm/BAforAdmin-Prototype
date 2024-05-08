@@ -14,6 +14,7 @@ import ku.cs.models.AdminList;
 
 import java.io.IOException;
 import ku.cs.services.AdminListFileDatasource;
+import ku.cs.services.exceptions.AuthenticationFailedException;
 
 public class LoginController {
 
@@ -38,21 +39,18 @@ public class LoginController {
         String username = giveUsernameTextField.getText();
         String password = givePasswordTextField.getText();
 
-        for (Admin admin : adminList.getAdmins()) {
-            if (admin.getName().equals(username) && admin.getPassword().equals(password)) {
-                errorLabel.setText("Success!");
-                onLoginButtonClick();
-                return;
-            }
-        }
-
         if(giveUsernameTextField.getText().isEmpty() && givePasswordTextField.getText().isEmpty()) {
             errorLabel.setText("Please enter your data.");
+            return;
         }
 
-
-        else {
-            errorLabel.setText("Wrong username or password!");
+        try {
+            Admin admin = adminList.authen(username, password);
+            FXRouter.goTo("admin", admin);
+        } catch (AuthenticationFailedException e){
+            errorLabel.setText(e.getMessage());
+        }catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -69,7 +67,7 @@ public class LoginController {
     @FXML
     protected void onLoginButtonClick() {
         try {
-            FXRouter.goTo("admin-list");
+            FXRouter.goTo("admin");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -22,12 +22,12 @@ public class AdminRegisterController {
     @FXML private TextField givePasswordTextField;
     private AdminList adminList;
 
-    public void onRegisterButtonClick(ActionEvent event) throws IOException {
+    public void onRegisterButtonClick(ActionEvent event) {
         checkRegister();
     }
 
 
-    private void checkRegister() throws IOException {
+    private void checkRegister()  {
         Datasource<AdminList> datasource = new AdminListFileDatasource("data", "admin-list.csv");
         adminList = datasource.readData();
 
@@ -36,22 +36,20 @@ public class AdminRegisterController {
         String id = giveIdTextField.getText();
         String password = givePasswordTextField.getText();
 
-        for (Admin admin : adminList.getAdmins()) {
-            if (giveUsernameTextField.getText().isEmpty() || giveIdTextField.getText().isEmpty() || givePasswordTextField.getText().isEmpty())
-            {
-                errorLabel.setText("Please enter your data.");
-            }
-            else if (admin.getName().equals(username) || admin.getId().equals((id)) || admin.getPassword().equals(password) ) {
-                errorLabel.setText("The data has been used!");
-                break;
-            }else {
-
-                adminList.addNewAdmin(username, id, password);
-                    datasource.writeData(adminList);
-                    onRegisterButtonClick();
-                    return;
-                }
+        if (giveUsernameTextField.getText().isEmpty() || giveIdTextField.getText().isEmpty() || givePasswordTextField.getText().isEmpty())
+        {
+            errorLabel.setText("Please enter your data.");
+            return;
         }
+
+        if(adminList.isExists(username, id)){
+            errorLabel.setText("The data has been used!");
+            return;
+        }
+
+            adminList.addNewAdmin(username, id, password);
+            datasource.writeData(adminList);
+            onRegisterButtonClick();
     }
 
     @FXML
@@ -66,7 +64,7 @@ public class AdminRegisterController {
     @FXML
     protected void onRegisterButtonClick() {
         try {
-            FXRouter.goTo("admin-list");
+            FXRouter.goTo("success");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

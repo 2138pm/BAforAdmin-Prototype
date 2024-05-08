@@ -1,5 +1,9 @@
 package ku.cs.models;
 
+import ku.cs.services.FXRouter;
+import ku.cs.services.exceptions.AuthenticationFailedException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminList {
@@ -18,6 +22,24 @@ public class AdminList {
                 admins.add(new Admin(name, id, password));
             }
         }
+    }
+
+    public boolean isExists(String username, String id){
+        for (Admin admin : admins) {
+            if (admin.getName().equals(username) || admin.getId().equals((id)) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Admin authen(String username, String password) {
+        for (Admin admin : admins) {
+            if (admin.check(username, password)) {
+                return admin;
+            }
+        }
+        throw new AuthenticationFailedException("Invalid username or password!");
     }
 
     public Admin findAdminById(String id) {

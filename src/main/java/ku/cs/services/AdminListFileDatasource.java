@@ -100,7 +100,7 @@ public class AdminListFileDatasource implements Datasource<AdminList>{
         try {
             // สร้าง csv ของ Student และเขียนลงในไฟล์ทีละบรรทัด
             for (Admin admin : data.getAdmins()) {
-                String line = admin.getName() + "," + admin.getId() + "," + admin.getPassword();
+                String line = admin.toCsv();
                 buffer.append(line);
                 buffer.append("\n");
             }

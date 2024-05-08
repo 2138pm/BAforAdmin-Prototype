@@ -1,0 +1,3 @@
+ - After login clicked, user will go to the admin details page by the username that signed
+ - Resolve admin register-page when the username or pw are already existed errorLabel must show "The data has been used!"
+   and stop login process

@@ -73,7 +73,7 @@ public class CustomersTableController {
     @FXML
     public void onBackButtonClick() {
         try {
-            FXRouter.goTo("admin-list");
+            FXRouter.goTo("admin");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
